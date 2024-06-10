@@ -2,13 +2,20 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 import ReactMarkdown from 'react-markdown';
 
 const AiAssistant = async () => {
-  const transaction = await fetch(`http://localhost:3000/api/ai-manager`).then(
-    (res) => res.json()
-  );
+  const data = "";
+  try {
+    const transaction = await fetch(`https://money-map-test.vercel.app/api/ai-manager`);
+    if (!transaction.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    const data = await transaction.json();
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
 
   const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API);
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-  const prompt = `You are a financial assistant. Based on the following transaction details, provide a summary for the user:
+  const prompt = `You are a financial assistant. Based on the following transaction details and are in Rupees, provide a summary for the user:
   Income Transactions:
   1. ID: 1, Amount: $1000, Description: Salary, Date: June 1, 2024, Category: Salary, Icon: 💼
   ... (include all income transactions here)
@@ -23,8 +30,10 @@ const AiAssistant = async () => {
   - A friendly closing remark
   Here's the data:
 
-  ${transaction}
+  ${data}
   `;
+
+  console.log(data);
 
   const result = await model.generateContent(prompt);
   const response = await result.response;
