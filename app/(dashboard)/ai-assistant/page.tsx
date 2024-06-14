@@ -56,12 +56,13 @@
 
 // export default AiAssistant;
 
+import Chat from '@/components/chatbot'
 import React from 'react'
 
 const Page = () => {
   return (
     <div>
-      Chatbot section
+      <Chat />
     </div>
   )
 }

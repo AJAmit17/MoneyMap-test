@@ -48,11 +48,11 @@ function Overview({ userSettings }: { userSettings: UserSettings }) {
           to={dateRange.to}
         />
 
-        {/* <CategoriesStats
+        <CategoriesStats
           userSettings={userSettings}
           from={dateRange.from}
           to={dateRange.to}
-        /> */}
+        />
       </div>
     </>
   );
