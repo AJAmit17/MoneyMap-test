@@ -2,45 +2,66 @@
 
 import React from "react";
 import { useChat } from "@ai-sdk/react";
-import Head from "next/head";
-import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { ScrollArea } from "./ui/scroll-area";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Markdown from "react-markdown";
+import { useUser } from "@clerk/nextjs";
 
-const Chat: React.FC = () => {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+const ChatTest = () => {
+  const { user } = useUser(); // Fetch user data from Clerk
+  const { messages, input, handleInputChange, handleSubmit, isLoading } =
+    useChat();
 
   return (
     <>
-      <Head>
-        <title>Chat Interface</title>
-        <meta
-          name="description"
-          content="A chat interface built with ShadCN, Next.js, TypeScript, and Tailwind CSS"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <Card className="w-full max-w-2xl p-6 shadow-lg">
-          <h2 className="text-2xl font-bold mb-4 text-center">
-            Persoanl Finance AI Assistant
-          </h2>
-          <div className="space-y-4 overflow-y-auto h-64 mb-4 p-2 border rounded-md">
+      <div className="min-h-[90vh] w-full flex flex-col items-center justify-center p-4">
+        <h1 className="text-center text-3xl font-bold mb-6">
+          Personal Finance Assistant
+        </h1>
+        <div className="mx-auto w-full">
+          <ScrollArea className="mb-4 h-[600px] rounded-md border p-4">
             {messages.map((m) => (
-              <div
-                key={m.id}
-                className={`p-2 rounded-md ${
-                  m.role === "user"
-                    ? "bg-blue-100 text-blue-900"
-                    : "bg-gray-100 text-gray-900"
-                }`}
-              >
-                <strong>{m.role === "user" ? "User" : "AI"}:</strong>
-                <Markdown>{m.content}</Markdown>
+              <div key={m.id} className="mr-6 whitespace-pre-wrap md:mr-12">
+                {m.role === "user" && (
+                  <div className="mb-6 flex gap-3">
+                    <Avatar>
+                      <AvatarImage src={user?.profileImageUrl || ""} />
+                      <AvatarFallback className="text-sm">You</AvatarFallback>
+                    </Avatar>
+                    <div className="mt-1.5">
+                      <p className="text-zinc-500 font-semibold">
+                        {user?.fullName}
+                      </p>
+                      <div className="mt-1.5 text-sm">
+                        <Markdown>{m.content}</Markdown>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {m.role === "assistant" && (
+                  <div className="mb-6 flex gap-3">
+                    <Avatar>
+                      <AvatarImage src="" />
+                      <AvatarFallback className="bg-emerald-500 text-white">
+                        AI
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="mt-1.5 w-full">
+                      <div className="flex justify-between">
+                        <p className="text-zinc-500 font-semibold">Bot</p>
+                      </div>
+                      <div className="mt-2 text-sm">
+                        <Markdown>{m.content}</Markdown>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
-          </div>
+          </ScrollArea>
           <form onSubmit={handleSubmit} className="flex space-x-4">
             <Input
               value={input}
@@ -55,10 +76,10 @@ const Chat: React.FC = () => {
               Send
             </Button>
           </form>
-        </Card>
+        </div>
       </div>
     </>
   );
 };
 
-export default Chat;
+export default ChatTest;
