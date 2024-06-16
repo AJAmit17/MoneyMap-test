@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { CurrencyComboBox } from "@/components/curComboBox";
 import CreateCategoryDialog from "@/components/dashboard/categoryDialog";
 import DeleteCategoryDialog from "@/components/dashboard/deleteCategoryDialog";
@@ -18,7 +19,12 @@ import { cn } from "@/lib/utils";
 import { Category } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
 import { PlusSquare, TrashIcon, TrendingDown, TrendingUp } from "lucide-react";
-import React from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "MoneyMap | Manage",
+  description: "",
+};
 
 function page() {
   return (

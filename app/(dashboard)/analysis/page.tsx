@@ -1,5 +1,11 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "MoneyMap | Finance Analysis",
+  description: "",
+};
 
 const Analysis = () => {
   return (

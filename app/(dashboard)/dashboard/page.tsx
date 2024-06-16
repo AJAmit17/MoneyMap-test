@@ -1,11 +1,17 @@
+import React from "react";
 import History from "@/components/dashboard/history";
 import Overview from "@/components/dashboard/Overview";
 import CreateTransactionDialog from "@/components/dashboard/transactionDialog";
 import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs";
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
-import React from "react";
+
+export const metadata: Metadata = {
+  title: "MoneyMap | Dashboard",
+  description: "",
+};
 
 async function page() {
   const user = await currentUser();
