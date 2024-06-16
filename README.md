@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MoneyMap
 
-## Getting Started
+MoneyMap is a modern web application designed to simplify personal finance management through intuitive interfaces, real-time data synchronization, and AI-driven insights. It leverages advanced technologies to provide users with a seamless and secure platform for managing their finances effectively.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **User Authentication:** Secure login and registration using Clerk auth.
+- **Dashboard:** Real-time display of financial summaries and key metrics using Tanstack Query and Shadcn/UI.
+- **Income & Expense Management:** Add, edit, and view income and expenses with efficient data handling via Prisma ORM and PostgreSQL.
+- **Data Visualization:** Dynamic and interactive graphs for better data interpretation using Recharts and Matplotlib for static visualization.
+- **AI-Powered Suggestions:** Personalized financial advice based on user data analyzed by Google Gemini LLM.
+- **Responsive Design:** Optimized for desktop and mobile devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend:**
+  - Next.js
+  - Shadcn/UI for UI components
+  - Recharts for dynamic data visualization
+  
+- **Backend:**
+  - Prisma ORM for database management
+  - PostgreSQL as the database
+  
+- **Data Analysis and Visualization:**
+  - Pandas for data manipulation
+  - Matplotlib for static data visualization
+  - Streamlit for interactive data exploration
+  
+- **Authentication:**
+  - Clerk auth for secure user authentication
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **AI Integration:**
+  - Google Gemini LLM for AI-driven financial insights
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/AJAmit17/MoneyMap.git
+   cd MoneyMap
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. **Set up PostgreSQL:**
+   - Create a PostgreSQL database and update the connection string in the `.env` file:
+     ```
+     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="your-api-key"
+     CLERK_SECRET_KEY="your-api-key"
 
-## Deploy on Vercel
+     NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+     NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+     GOOGLE_GEMINI_API = "your api key"
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+     POSTGRES_PRISMA_URL="PostgreSQL-prisma url"
+     POSTGRES_URL_NON_POOLING="PostgreSQL database url(non-pooling)"
+     ```
+
+4. **Run migrations:**
+   ```bash
+   npx prisma migrate dev
+   ```
+
+5. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open the app:**
+   - Open your browser and go to `http://localhost:3000`
+
+## Deployment
+
+- MoneyMap can be deployed to platforms like Vercel, AWS, or Heroku. Ensure to set up environment variables and database connections appropriately for production deployment.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Inspired by the need for an intuitive and efficient personal finance management tool.
+- Special thanks to the developers and contributors of Next.js, Prisma ORM, PostgreSQL, Streamlit, Pandas, Matplotlib, Recharts, Clerk auth, and other open-source technologies used in this project.
