@@ -6,11 +6,6 @@ import TransactionTable from "@/components/dashboard/transactionTable";
 import { DateRangePicker } from "@/components/ui/dateRangePicker";
 import { startOfMonth } from "date-fns";
 
-export const metadata: Metadata = {
-  title: "MoneyMap | Transactions",
-  description: "",
-};
-
 function TransactionsPage() {
   const [dateRange, setDateRange] = useState<{ from: Date; to: Date }>({
     from: startOfMonth(new Date()),

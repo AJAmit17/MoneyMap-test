@@ -9,6 +9,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { ModeToggle } from "./modeToggle";
+import Image from "next/image";
 
 function Navbar() {
   return (
@@ -40,6 +41,12 @@ function MobileNavbar() {
             </Button>
           </SheetTrigger>
           <SheetContent className="w-[400px] sm:w-[540px]" side="left">
+            <div className="relative flex items-center justify-start text-2xl font-bold">
+              <div className="p-2">
+                <Image src={`/logo.png`} width={30} height={30} alt={"logo"} />
+              </div>
+              <Link href={"/"}>MoneyMap</Link>
+            </div>
             <div className="flex flex-col gap-1 pt-4">
               {items.map((item) => (
                 <NavbarItem
@@ -67,6 +74,9 @@ function DesktopNavbar() {
       <nav className="container flex items-center justify-between px-8">
         <div className="flex h-[80px] min-h-[60px] items-center gap-x-4">
           <div className="relative flex items-center justify-start text-2xl font-bold">
+            <div className="p-2">
+              <Image src={`/logo.png`} width={30} height={30} alt={"logo"} />
+            </div>
             <Link href={"/"}>MoneyMap</Link>
           </div>
           <div className="flex h-full">

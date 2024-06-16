@@ -62,7 +62,7 @@ function History({ userSettings }: { userSettings: UserSettings }) {
                 variant={"outline"}
                 className="flex items-center gap-2 text-sm"
               >
-                <div className="h-4 w-4 rounded-full bg-emerald-500"></div>
+                <div className="h-4 w-4 rounded-full bg-green-500"></div>
                 Income
               </Badge>
               <Badge
@@ -88,7 +88,7 @@ function History({ userSettings }: { userSettings: UserSettings }) {
                     <linearGradient id="incomeBar" x1="0" y1="0" x2="0" y2="1">
                       <stop
                         offset={"0"}
-                        stopColor="#10b981"
+                        stopColor="#22c55e"
                         stopOpacity={"1"}
                       />
                       <stop

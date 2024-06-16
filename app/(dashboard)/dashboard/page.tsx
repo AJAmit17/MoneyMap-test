@@ -5,13 +5,8 @@ import CreateTransactionDialog from "@/components/dashboard/transactionDialog";
 import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs";
-import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "MoneyMap | Dashboard",
-  description: "",
-};
 
 async function page() {
   const user = await currentUser();
@@ -40,7 +35,7 @@ async function page() {
               trigger={
                 <Button
                   variant={"outline"}
-                  className="border-emerald-500 bg-emerald-950 text-white hover:bg-emerald-700 hover:text-white"
+                  className="border-green-500 bg-green-700 text-white hover:bg-green-950 hover:text-white"
                 >
                   New income 🤑
                 </Button>
@@ -52,7 +47,7 @@ async function page() {
               trigger={
                 <Button
                   variant={"outline"}
-                  className="border-rose-500 bg-rose-950 text-white hover:bg-rose-700 hover:text-white"
+                  className="border-red-500 bg-red-700 text-white hover:bg-red-950 hover:text-white"
                 >
                   New expense 😤
                 </Button>

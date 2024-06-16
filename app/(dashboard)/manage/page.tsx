@@ -21,11 +21,6 @@ import { useQuery } from "@tanstack/react-query";
 import { PlusSquare, TrashIcon, TrendingDown, TrendingUp } from "lucide-react";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "MoneyMap | Manage",
-  description: "",
-};
-
 function page() {
   return (
     <>
@@ -55,22 +50,6 @@ function page() {
           <CategoryList type="expense" />
         </div>
       </div>
-
-      {/* <div className="container flex flex-col gap-4 p-4">
-        <Card>
-          <CardHeader>
-            <CardTitle>Currency</CardTitle>
-            <CardDescription>
-              Set your default currency for transactions
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <CurrencyComboBox />
-          </CardContent>
-        </Card>
-        <CategoryList type="income" />
-        <CategoryList type="expense" />
-      </div> */}
     </>
   );
 }
