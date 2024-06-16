@@ -23,6 +23,7 @@ const items = [
   { label: "Dashboard", link: "/dashboard" },
   { label: "Transactions", link: "/transactions" },
   { label: "AI Assistant", link: "/ai-assistant" },
+  { label: "Analyse", link: "/analysis" },
   { label: "Manage", link: "/manage" },
 ];
 
