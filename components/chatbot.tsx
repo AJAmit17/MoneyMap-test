@@ -1,18 +1,30 @@
-"use client";
+"use client"
 
-import React from "react";
+import React, { useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { ScrollArea } from "./ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Markdown from "react-markdown";
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs"; // Import your ShadowCard component
+import { Card } from "./ui/card";
+
+const predefinedPrompts = [
+  "Hello!",
+  "How are you?",
+  "What's up?",
+  "Nice to meet you!",
+];
 
 const ChatTest = () => {
   const { user } = useUser(); // Fetch user data from Clerk
-  const { messages, input, handleInputChange, handleSubmit, isLoading } =
+  const { messages, input, setInput, handleInputChange, handleSubmit } =
     useChat();
+
+  const handlePromptClick = (prompt : string) => {
+    setInput(prompt); // Set the prompt text in the input field
+  };
 
   return (
     <>
@@ -20,6 +32,19 @@ const ChatTest = () => {
         <h1 className="text-center text-3xl font-bold mb-6">
           Personal Finance Assistant
         </h1>
+        {/* Prompts display area */}
+        <div className=" mb-3 flex flex-wrap">
+          {predefinedPrompts.map((prompt, index) => (
+            <Card
+              key={index}
+              onClick={() => handlePromptClick(prompt)}
+              className="shadow-md rounded-lg p-4 m-2 cursor-pointer"
+            >
+              <p>{prompt}</p>
+            </Card>
+          ))}
+        </div>
+
         <div className="mx-auto w-full">
           <ScrollArea className="mb-4 h-[600px] rounded-md border p-4">
             {messages.map((m) => (

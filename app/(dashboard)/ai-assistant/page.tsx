@@ -1,4 +1,4 @@
-import Chat from '@/components/chatbot'
+import ChatTest from '@/components/chatbot'
 import { Metadata } from 'next';
 import React from 'react'
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <div>
-      <Chat />
+      <ChatTest />
     </div>
   )
 }
