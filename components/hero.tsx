@@ -8,7 +8,7 @@ export default function HeroSectionSimpleCentred() {
     <>
       {/* Hero */}
       <div>
-        <div className="container py-24 lg:py-32">
+        <div className="container py-14 lg:py-18">
           {/* Announcement Banner */}
           <div className="flex justify-center">
             <a

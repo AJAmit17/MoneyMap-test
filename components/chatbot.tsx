@@ -11,26 +11,25 @@ import { useUser } from "@clerk/nextjs"; // Import your ShadowCard component
 import { Card } from "./ui/card";
 
 const predefinedPrompts = [
-  "Hello!",
-  "How are you?",
-  "What's up?",
-  "Nice to meet you!",
+  "help me choose courses!",
+  "online vs offline courses?",
+  "Roadmap for {desiring role}?",
 ];
 
 const ChatTest = () => {
-  const { user } = useUser(); // Fetch user data from Clerk
+  const { user } = useUser();
   const { messages, input, setInput, handleInputChange, handleSubmit } =
     useChat();
 
   const handlePromptClick = (prompt : string) => {
-    setInput(prompt); // Set the prompt text in the input field
+    setInput(prompt); 
   };
 
   return (
     <>
       <div className="min-h-[90vh] w-full flex flex-col items-center justify-center p-4">
         <h1 className="text-center text-3xl font-bold mb-6">
-          Personal Finance Assistant
+          Ai-Assistant
         </h1>
         {/* Prompts display area */}
         <div className=" mb-3 flex flex-wrap">

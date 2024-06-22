@@ -8,7 +8,7 @@ function WrapQuery({ children }: { children: ReactNode }) {
   const [queryClient] = React.useState(() => new QueryClient({}));
   return (
     <QueryClientProvider client={queryClient}>
-       <ReactQueryDevtools initialIsOpen={false} />
+       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
         {children}
     </QueryClientProvider>
   );

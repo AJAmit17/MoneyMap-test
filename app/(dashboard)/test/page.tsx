@@ -1,12 +1,11 @@
-import Chatbot from '@/components/test'
 import React from 'react'
 
-const Page = () => {
+const page = () => {
   return (
     <div>
-      <Chatbot />
+      asdasdasdasd
     </div>
   )
 }
 
-export default Page
+export default page
