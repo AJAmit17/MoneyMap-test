@@ -10,6 +10,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import React from "react";
 
