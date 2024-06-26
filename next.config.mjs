@@ -3,6 +3,7 @@ const nextConfig = {
     images: {
         domains: [
           "api.microlink.io", // Microlink Image Preview
+          "cdn-icons-png.flaticon.com"
         ],
     },
 };

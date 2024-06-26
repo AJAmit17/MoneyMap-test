@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export function AccordionDemo() {
+function AccordionDemo() {
   return (
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
@@ -24,10 +24,22 @@ export function AccordionDemo() {
       <AccordionItem value="item-3">
         <AccordionTrigger>Is it animated?</AccordionTrigger>
         <AccordionContent>
-          Yes. It&apos;s animated by default, but you can disable it if you
-          prefer.
+          Yes. Its animated by default, but you can disable it if you prefer.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
+  );
+}
+
+export function Faq() {
+  return (
+    <div className="mx-auto max-w-[1024px] mt-10 p-6 rounded-lg shadow-lg">
+      <div className="p-16">
+        <h2 className="text-3xl font-bold text-center mb-8 dark:text-white text-gray-900">
+          FAQ
+        </h2>
+        <AccordionDemo />
+      </div>
+    </div>
   );
 }
