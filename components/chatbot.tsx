@@ -11,9 +11,9 @@ import { useUser } from "@clerk/nextjs"; // Import your ShadowCard component
 import { Card } from "./ui/card";
 
 const predefinedPrompts = [
-  "help me choose courses!",
-  "online vs offline courses?",
-  "Roadmap for {desiring role}?",
+  "Planning my financial future, where do I start?",
+  "Investment options for beginners?",
+  "Choosing between stocks and bonds?",
 ];
 
 const ChatTest = () => {
