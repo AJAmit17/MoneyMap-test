@@ -15,10 +15,9 @@ export default function Footer() {
             <div className="flex flex-col items-center text-center gap-6 not-prose">
               <Button>
                 <LinkPreview
-  {/*url="https://github.com/AJAmit17/MoneyMap" */}
-  url="https://github.com/BharatHBaddi0078/Money-Map"
-  className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
->
+                  url="https://github.com/BharatHBaddi0078/Money-Map"
+                  className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
+                >
                   <p>Give a star at Github ⭐</p>
                 </LinkPreview>
               </Button>
